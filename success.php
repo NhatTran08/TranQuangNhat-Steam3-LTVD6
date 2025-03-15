@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// Kiểm tra nếu chưa có session thì thử lấy từ Cookie
 if (!isset($_SESSION["username"]) && isset($_COOKIE["username"])) {
-    $_SESSION["username"] = $_COOKIE["username"]; // Khôi phục session từ Cookie
+    $_SESSION["username"] = $_COOKIE["username"];
 }
 
-// Nếu vẫn không có username => quay về login.php
 if (!isset($_SESSION["username"])) {
     header("Location: ./login.php");
     exit();
